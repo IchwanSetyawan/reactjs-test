@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import Layout from "../../layout/Layout";
 
 const UserPage = () => {
+  const navigate = useNavigate();
+
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(20);
 
   const [isLoading, setIsloading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successsMsg, setSuccesssMsg] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
   const [term, setTerm] = useState("");
 
-  //open detail modal
+  //open detail modal;
   const openModal = (user, number) => {
     setSelectedUser({ ...user, number });
     setIsModalOpen(true);
