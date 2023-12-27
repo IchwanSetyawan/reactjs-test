@@ -24,7 +24,6 @@ const UserPage = () => {
   const openModal = (user, number) => {
     setSelectedUser({ ...user, number });
     setIsModalOpen(true);
-    console.log("user", user);
   };
 
   // Fungsi untuk menutup modal
